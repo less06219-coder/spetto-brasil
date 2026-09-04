@@ -43,13 +43,13 @@ export const dados = {
   ], // [PREENCHER: números reais]
 
   galeria: [
-    { legenda: "Self-service", emoji: "🍽️", foto: "" },
-    { legenda: "Espetinhos na brasa", emoji: "🍢", foto: "" },
-    { legenda: "Nosso salão", emoji: "🏠", foto: "" },
-    { legenda: "Marmita pra viagem", emoji: "🥡", foto: "" },
-    { legenda: "Equipe Spetto", emoji: "👨‍🍳", foto: "" },
-    { legenda: "Amigos e família", emoji: "🎉", foto: "" },
-  ], // [PREENCHER: troque "foto" por um link ou arquivo de imagem real — enquanto vazio, mostra um espaço reservado]
+    { legenda: "Self-service", icone: "prato", foto: "" },
+    { legenda: "Espetinhos na brasa", icone: "espetinho", foto: "" },
+    { legenda: "Nosso salão", icone: "salao", foto: "" },
+    { legenda: "Marmita pra viagem", icone: "marmita", foto: "" },
+    { legenda: "Equipe Spetto", icone: "equipe", foto: "" },
+    { legenda: "Amigos e família", icone: "amigos", foto: "" },
+  ] as { legenda: string; icone: "prato" | "espetinho" | "salao" | "marmita" | "equipe" | "amigos"; foto: string }[], // [PREENCHER: troque "foto" por um link ou arquivo de imagem real — enquanto vazio, mostra a ilustração de "icone"]
 
   depoimentos: [
     { nome: "[PREENCHER: nome]", contexto: "Cliente do almoço", texto: "O prato sai rápido e ainda chega quente na mesa. Nunca vi a fila travar." },

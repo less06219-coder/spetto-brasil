@@ -32,7 +32,13 @@ function useVirarNoiteAoRolar(sentinelaRef: React.RefObject<HTMLDivElement>) {
       requestAnimationFrame(avaliar);
     }
 
-    avaliar();
+    // Espera o layout assentar (fontes ainda carregando podem medir a
+    // página mais baixa que o real e disparar "noite" já no topo) antes
+    // da primeira avaliação.
+    requestAnimationFrame(() => requestAnimationFrame(avaliar));
+    if (typeof document !== "undefined" && "fonts" in document) {
+      document.fonts.ready.then(avaliar).catch(() => {});
+    }
     window.addEventListener("scroll", agendar, { passive: true });
     window.addEventListener("resize", agendar);
     return () => {
