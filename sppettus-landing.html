@@ -627,11 +627,16 @@ const DADOS = {
   galeria: [
     { legenda:"Self-service", icone:"prato", foto:"" },
     { legenda:"Espetinhos na brasa", icone:"espetinho", foto:"" },
-    { legenda:"Nosso salão", icone:"salao", foto:"" },
+    { legenda:"Nosso salão", icone:"salao", foto:"" }, // sem foto de propósito — ver nota abaixo
     { legenda:"Marmita pra viagem", icone:"marmita", foto:"" },
-    { legenda:"Equipe Spetto", icone:"equipe", foto:"" },
-    { legenda:"Amigos e família", icone:"amigos", foto:"" }
-  ], // [PREENCHER: troque "foto" por um link ou arquivo de imagem real — enquanto vazio, mostra a ilustração de "icone"]
+    { legenda:"Equipe Spetto", icone:"equipe", foto:"" }, // sem foto de propósito — ver nota abaixo
+    { legenda:"Amigos e família", icone:"amigos", foto:"" } // sem foto de propósito — ver nota abaixo
+  ],
+  // Só os itens de comida (self-service, espetinho, marmita) têm foto —
+  // geradas por IA (pollinations.ai), ilustrativas, não são fotos reais do
+  // Spetto Brasil. Troque "foto" por um arquivo/link real assim que tiver
+  // fotos verdadeiras da casa. Salão, equipe e amigos ficaram com o ícone
+  // de propósito, a pedido do dono do negócio.
   depoimentos: [
     { nome:"[PREENCHER: nome]", contexto:"Cliente do almoço", texto:"O prato sai rápido e ainda chega quente na mesa. Nunca vi a fila travar." },
     { nome:"[PREENCHER: nome]", contexto:"Cliente do jantar", texto:"Levei o grupo do trabalho inteiro sem avisar antes. Coube todo mundo e o espeto não parou de vir." },

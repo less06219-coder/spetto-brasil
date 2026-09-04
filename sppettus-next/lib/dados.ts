@@ -49,7 +49,7 @@ export const dados = {
     { legenda: "Marmita pra viagem", icone: "marmita", foto: "" },
     { legenda: "Equipe Spetto", icone: "equipe", foto: "" },
     { legenda: "Amigos e família", icone: "amigos", foto: "" },
-  ] as { legenda: string; icone: "prato" | "espetinho" | "salao" | "marmita" | "equipe" | "amigos"; foto: string }[], // [PREENCHER: troque "foto" por um link ou arquivo de imagem real — enquanto vazio, mostra a ilustração de "icone"]
+  ] as { legenda: string; icone: "prato" | "espetinho" | "salao" | "marmita" | "equipe" | "amigos"; foto: string }[], // [PREENCHER: troque "foto" por um link ou arquivo de imagem real quando tiver fotos verdadeiras da casa]
 
   depoimentos: [
     { nome: "[PREENCHER: nome]", contexto: "Cliente do almoço", texto: "O prato sai rápido e ainda chega quente na mesa. Nunca vi a fila travar." },
