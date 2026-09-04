@@ -1,0 +1,19 @@
+# Pastas fora do escopo deste repositório
+.claude/
+terra_para_images/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Ambiente
+.env
+.env.local

@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --porcelana: #eff2ed;
+  --folha: #1d3a28;
+  --coentro: #35704a;
+  --carvao: #17110e;
+  --brasa: #e8642a;
+  --fumaca: #6b7a6e;
+
+  --bg: var(--porcelana);
+  --fg: var(--folha);
+  --acento: var(--coentro);
+  --sub: var(--fumaca);
+  --card-bg: #ffffff;
+  --card-border: rgba(29, 58, 40, 0.12);
+
+  color-scheme: light;
+}
+
+html.noite {
+  --bg: var(--carvao);
+  --fg: #f4efe9;
+  --acento: var(--brasa);
+  --sub: #b9afa6;
+  --card-bg: #221812;
+  --card-border: rgba(232, 100, 42, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-corpo), sans-serif;
+  transition: background-color 0.9s ease, color 0.9s ease;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 2px solid var(--acento);
+  background: var(--acento);
+  color: var(--bg);
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px var(--acento);
+}
+
+.btn.fantasma {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--card-border);
+}
+
+.btn.fantasma:hover {
+  border-color: var(--acento);
+}
+
+#cta-hero-primario {
+  animation: pulsarCta 2.6s ease-in-out infinite;
+}
+#cta-hero-primario:hover {
+  animation-play-state: paused;
+}
+@keyframes pulsarCta {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--acento) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 12px color-mix(in srgb, var(--acento) 0%, transparent);
+  }
+}
+
+.badge-ponto-aberto {
+  animation: pulsarPonto 2s ease-in-out infinite;
+}
+@keyframes pulsarPonto {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(76, 175, 109, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(76, 175, 109, 0.1);
+  }
+}
+
+.card-beneficio:hover .icone-beneficio {
+  animation: saltarIcone 0.5s ease;
+}
+@keyframes saltarIcone {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(-7px) scale(1.15);
+  }
+  65% {
+    transform: translateY(0) scale(0.96);
+  }
+}
+
+.vapor {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  width: 6px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  filter: blur(3px);
+  opacity: 0;
+}
+
+.vapor.v1 {
+  transform: translateX(-38px);
+  animation: subirVapor 3.2s ease-in infinite;
+}
+.vapor.v2 {
+  transform: translateX(0);
+  animation: subirVapor 3.6s ease-in infinite;
+  animation-delay: 0.6s;
+}
+.vapor.v3 {
+  transform: translateX(34px);
+  animation: subirVapor 3s ease-in infinite;
+  animation-delay: 1.3s;
+}
+
+@keyframes subirVapor {
+  0% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), 0) scale(1);
+  }
+  18% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--tx, 0) + 10px), -140px) scale(1.8);
+  }
+}
+
+.clip-line {
+  overflow: hidden;
+  display: block;
+}
+
+html.noite #brasa-glow {
+  opacity: 1;
+}
+
+.espeto-ilustracao {
+  animation: flutuarHero 5s ease-in-out infinite;
+}
+@keyframes flutuarHero {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.espeto-ilustracao .emoji-hero {
+  display: inline-block;
+  animation: balancarEmoji 5s ease-in-out infinite;
+}
+@keyframes balancarEmoji {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Brasas flutuantes no fundo, visíveis só no tema noite */
+.brasas {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+html.noite .brasas {
+  opacity: 1;
+}
+.brasas span {
+  position: absolute;
+  bottom: -10px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--brasa);
+  box-shadow: 0 0 8px 2px rgba(232, 100, 42, 0.6);
+  opacity: 0;
+  animation: subirBrasa 8s linear infinite;
+}
+@keyframes subirBrasa {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx, 20px), -105vh) scale(0.4);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brasas {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+}
